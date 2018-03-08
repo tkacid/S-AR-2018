@@ -12,12 +12,11 @@ import random
 
 
 def makedax(s):
-    ''' This is the factory to make a X, could have went a couple ways but decided to use a list to the make the X.
-    '''
-    for t in range(s):
+
+    for tx in range(s):
         p = list(" " * s)
         p[t] = "*"
-        p[-(t+1)] = "*"
+        p[-(tx+1)] = "*"
         print " ".join(p)
 
 

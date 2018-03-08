@@ -40,7 +40,7 @@ def words():
  |_____/ \___\___/| .__/ \___| /_/    \_\_|  \_\                        
 		  |_|
   --------------------------------------------
-  Awesome Super Xmas Tree Maker! - Mike Dunham
+  Awesome X Pattern Maker! - Mike Dunham
 
 				  """)
 

@@ -12,26 +12,27 @@ import random
 
 
 def makedax(s):
-	''' This is the factory to make a X, could have went a couple ways but decided to use a list to the make the X.
-	'''
-	for t in range(s):
-	    p = list(" " * s)
-	    p[t] = "*"
-	    p[-(t+1)] = "*"
-	    print " ".join(p)
+    ''' This is the factory to make a X, could have went a couple ways but decided to use a list to the make the X.
+    '''
+    for t in range(s):
+        p = list(" " * s)
+        p[t] = "*"
+        p[-(t+1)] = "*"
+        print " ".join(p)
 
 
-def checkinput(l,h,number):
+def checkinput(l, h, number):
 
-	if l <= number <= h:
-		pass
+    if l <= number <= h:
+        pass
 
-	else:
-		print "I said 10-20.... try again"
-		exit()
+    else:
+        print "I said 5-20.... try again"
+        exit()
+
 
 def words():
-	colors.prGreen("""\n
+    colors.prGreen("""\n
    _____                                 _____  
   / ____|                          /\   |  __ \ 
  | (___   ___ ___  _ __   ___     /  \  | |__) |
@@ -44,13 +45,15 @@ def words():
 
 				  """)
 
+
 words()
 toolbar_width = 30
 
 # setup toolbar
 sys.stdout.write("Energizing Bananas [%s]" % (" " * toolbar_width))
 sys.stdout.flush()
-sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+# return to start of line, after '['
+sys.stdout.write("\b" * (toolbar_width+1))
 
 for i in xrange(toolbar_width):
     time.sleep(0.1)
@@ -63,13 +66,9 @@ os.system('clear')
 
 print("How big do you want your X?\n(Suggested 5-20): ")
 
-xsize  = int(raw_input().lower())
-sizeresult = checkinput(5,20,xsize)
+xsize = int(raw_input().lower())
+sizeresult = checkinput(5, 20, xsize)
 
 os.system('clear')
 makedax(xsize)
 colors.prLightPurple("\nEnjoy your X Michael Dunham\n")
-
-
-
-

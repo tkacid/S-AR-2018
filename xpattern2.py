@@ -11,19 +11,19 @@ import random
 import config
 
 
-def make_flora(n):
+def make_da_x(s):
 
-    # Make tree
-    for i in range(n):
-        print ' ' * (n - (i + 1)), '*' * (2*i+1)
-
-    return True, n
+    for tx in range(s):
+        p = list(" " * s)
+        p[tx] = "*"
+        p[-(tx+1)] = "*"
+        print " ".join(p)
 
 
 def loading_bar():
 
     # setup toolbar
-    sys.stdout.write("Shredding Cheese [%s]" % (" " * config.toolbar_width))
+    sys.stdout.write("Energizing Bananas [%s]" % (" " * config.toolbar_width))
     sys.stdout.flush()
 
     # return to start of line, after '['
@@ -47,8 +47,8 @@ def check_input(l, h, number):
 
 
 def display_words():
-    
-    #Scope AR ASCII image
+
+    # Scope AR ASCII image
     prGreen("""\n
        _____                                 _____  
       / ____|                          /\   |  __ \ 
@@ -58,11 +58,12 @@ def display_words():
      |_____/ \___\___/| .__/ \___| /_/    \_\_|  \_\                        
           |_|
       --------------------------------------------
-      Awesome Super Xmas Tree Maker! - Mike Dunham
+          Awesome Super X Maker! - Mike Dunham
 
           """)
 
-def prGreen(skk): 
+
+def prGreen(skk):
     print("\033[92m {}\033[00m" .format(skk))
 
 
@@ -74,26 +75,16 @@ def main():
     # Displays loading bar
     loading_bar()
 
-    # Determines size of tree based off user input
-    print(config.eng_howbig)
-    tsize = int(raw_input().lower())
-    sizeresult = check_input(20, 30, tsize)
+    # Determines size of X
+    print(config.eng_x_howbig)
+
+    xsize = int(raw_input().lower())
+    sizeresult = check_input(5, 20, xsize)
 
     if sizeresult:
-        # Asks the users if they would like to proceed with their tree
-        print(config.eng_txtree)
-        choice = raw_input().lower()
 
-        if choice in config.yes:
-
-            # Lets make our tree based off input size
-            make_flora(tsize)
-
-            # Display thank you message
-            print(config.eng_thankyou)
-
-        elif choice in config.no:
-            print(config.eng_yorn)
+        # Lets make our tree based off input size
+        make_da_x(xsize)
 
     else:
         print(config.eng_error)

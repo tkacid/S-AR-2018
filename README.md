@@ -15,4 +15,11 @@ To build tree example: run tree.py
 
 To build X Pattern example: run xpattern.py
 
+Testing:
+
+- Run Tree Unit Test: tree_test.py
+- Run X Pattern Test: xpattern_test.py
+
+
+
 

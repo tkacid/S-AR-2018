@@ -5,69 +5,92 @@
 """
 
 import os
-import colors
 import time
 import sys
 import random
+import config
 
 
-def makedax(s):
+def make_da_x(s):
 
     for tx in range(s):
         p = list(" " * s)
-        p[t] = "*"
+        p[tx] = "*"
         p[-(tx+1)] = "*"
         print " ".join(p)
 
-
-def checkinput(l, h, number):
-
-    if l <= number <= h:
-        pass
-
-    else:
-        print "I said 5-20.... try again"
-        exit()
+    return s
 
 
-def words():
-    colors.prGreen("""\n
-   _____                                 _____  
-  / ____|                          /\   |  __ \ 
- | (___   ___ ___  _ __   ___     /  \  | |__) |
-  \___ \ / __/ _ \| '_ \ / _ \   / /\ \ |  _  / 
-  ____) | (_| (_) | |_) |  __/  / ____ \| | \ \ 
- |_____/ \___\___/| .__/ \___| /_/    \_\_|  \_\                        
-		  |_|
-  --------------------------------------------
-  Awesome X Pattern Maker! - Mike Dunham
+def loading_bar():
 
-				  """)
-
-
-words()
-toolbar_width = 30
-
-# setup toolbar
-sys.stdout.write("Energizing Bananas [%s]" % (" " * toolbar_width))
-sys.stdout.flush()
-# return to start of line, after '['
-sys.stdout.write("\b" * (toolbar_width+1))
-
-for i in xrange(toolbar_width):
-    time.sleep(0.1)
-    sys.stdout.write("-")
+    # setup toolbar
+    sys.stdout.write("Energizing Bananas [%s]" % (" " * config.toolbar_width))
     sys.stdout.flush()
 
-sys.stdout.write("\n")
+    # return to start of line, after '['
+    sys.stdout.write("\b" * (config.toolbar_width+1))
 
-os.system('clear')
+    for i in xrange(config.toolbar_width):
+        time.sleep(0.1)
+        sys.stdout.write("-")
+        sys.stdout.flush()
 
-print("How big do you want your X?\n(Suggested 5-20): ")
+    sys.stdout.write("\n")
 
-xsize = int(raw_input().lower())
-sizeresult = checkinput(5, 20, xsize)
 
-os.system('clear')
-makedax(xsize)
-colors.prLightPurple("\nEnjoy your X Michael Dunham\n")
+def check_input(l, h, number):
+
+    # Checks the input to see if its in range
+    if l <= number <= h:
+        return True
+    else:
+        return False
+
+
+def display_words():
+
+    # Scope AR ASCII image
+    prGreen("""\n
+       _____                                 _____  
+      / ____|                          /\   |  __ \ 
+     | (___   ___ ___  _ __   ___     /  \  | |__) |
+      \___ \ / __/ _ \| '_ \ / _ \   / /\ \ |  _  / 
+      ____) | (_| (_) | |_) |  __/  / ____ \| | \ \ 
+     |_____/ \___\___/| .__/ \___| /_/    \_\_|  \_\                        
+          |_|
+      --------------------------------------------
+          Awesome Super X Maker! - Mike Dunham
+
+          """)
+
+
+def prGreen(skk):
+    print("\033[92m {}\033[00m" .format(skk))
+
+
+def main():
+
+    # Dsiplays ACSII Scope AR text
+    display_words()
+
+    # Displays loading bar
+    loading_bar()
+
+    # Determines size of X
+    print(config.eng_x_howbig)
+
+    xsize = int(raw_input().lower())
+    sizeresult = check_input(5, 20, xsize)
+
+    if sizeresult:
+
+        # Lets make our tree based off input size
+        make_da_x(xsize)
+
+    else:
+        print(config.eng_error)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

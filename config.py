@@ -17,7 +17,7 @@ eng_txtree = "Woah thats a little much, we just have one tree left," \
     "a old ragged nasty ascii tree.... Would you like it? (Yes | No)"
 eng_tryagain = ""
 eng_loadingtxt = ""
-eng_yorn = "Try aagain but please respond with 'yes' or 'no'"
+eng_yorn = "No problem, better luck next time"
 eng_thankyou = "This is what you get and you better be happy with it\nMerry Xmas by Michael Dunham"
 eng_error = "Sorry you have entered a invalid integer"
 
